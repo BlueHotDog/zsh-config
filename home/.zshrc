@@ -86,10 +86,11 @@ source $ZSH/oh-my-zsh.sh
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvmeval "$(exenv init -)"
 
-eval "$(exenv init -)"
+[ -f exenv ] && eval "$(exenv init -)"
 # added by travis gem
-[ -f /home/danni/.travis/travis.sh ] && source /home/danni/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 
 autoload zmv
-eval "$(rbenv init -)"
+[ -f rbenv ] && eval "$(rbenv init -)"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
